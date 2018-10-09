@@ -13,7 +13,7 @@ function setup() {
 }
 
 function draw() {
-  background(255);
+  background(0);
   var yoff = 0;
   for(var y = 0; y < rows ; y ++ ){
     var xoff = 0;
@@ -27,13 +27,13 @@ function draw() {
       var r = noise(xoff) * width/10 ;
       var g = noise(yoff) * height/10;
       var diameter = noise(xoff) * 10;
+      var h = random(60,100);
 
       push();
       translate(x * scl,y *scl);
       rotate(v.heading());
-      fill(r, g, 255);
-      rectMode(CENTER);
-      rect(10,10,diameter,diameter);
+      fill(r , g , 255 , h);
+      ellipse(10,10,diameter,diameter);
       pop();
     }
     yoff += inc;
