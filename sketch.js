@@ -6,13 +6,13 @@ var zoff = 0;
 
 function setup() {
   // put setup code here
-  createCanvas(600,600);
+  createCanvas(windowWidth,windowHeight);
+
   cols = floor (width / scl);
   rows = floor (height / scl);
 }
 
 function draw() {
-
   background(255);
   var yoff = 0;
   for(var y = 0; y < rows ; y ++ ){
@@ -24,8 +24,8 @@ function draw() {
 
       xoff += inc;
       noStroke();
-      var r = noise(xoff) * width/2 ;
-      var g = noise(yoff) * height/2;
+      var r = noise(xoff) * width/10 ;
+      var g = noise(yoff) * height/10;
       var diameter = noise(xoff) * 10;
 
       push();
@@ -33,7 +33,7 @@ function draw() {
       rotate(v.heading());
       fill(r, g, 255);
       rectMode(CENTER);
-      ellipse(10,10,diameter,diameter);
+      rect(10,10,diameter,diameter);
       pop();
     }
     yoff += inc;
